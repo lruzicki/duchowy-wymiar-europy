@@ -11,8 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as KeystaticIndexRouteImport } from './routes/keystatic/index'
+import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as KeystaticSplatRouteImport } from './routes/keystatic/$'
 import { Route as DemoTableRouteImport } from './routes/demo/table'
 import { Route as ApiKeystaticIndexRouteImport } from './routes/api/keystatic/index'
@@ -28,14 +28,14 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsSlugRoute = LocationsSlugRouteImport.update({
-  id: '/locations/$slug',
-  path: '/locations/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const KeystaticIndexRoute = KeystaticIndexRouteImport.update({
   id: '/keystatic/',
   path: '/keystatic/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsSlugRoute = LocationsSlugRouteImport.update({
+  id: '/locations/$slug',
+  path: '/locations/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KeystaticSplatRoute = KeystaticSplatRouteImport.update({
@@ -62,9 +62,9 @@ const ApiKeystaticSplatRoute = ApiKeystaticSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/timeline': typeof TimelineRoute
-  '/locations/$slug': typeof LocationsSlugRoute
   '/demo/table': typeof DemoTableRoute
   '/keystatic/$': typeof KeystaticSplatRoute
+  '/locations/$slug': typeof LocationsSlugRoute
   '/keystatic/': typeof KeystaticIndexRoute
   '/api/keystatic/$': typeof ApiKeystaticSplatRoute
   '/api/keystatic/': typeof ApiKeystaticIndexRoute
@@ -72,9 +72,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/timeline': typeof TimelineRoute
-  '/locations/$slug': typeof LocationsSlugRoute
   '/demo/table': typeof DemoTableRoute
   '/keystatic/$': typeof KeystaticSplatRoute
+  '/locations/$slug': typeof LocationsSlugRoute
   '/keystatic': typeof KeystaticIndexRoute
   '/api/keystatic/$': typeof ApiKeystaticSplatRoute
   '/api/keystatic': typeof ApiKeystaticIndexRoute
@@ -83,9 +83,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/timeline': typeof TimelineRoute
-  '/locations/$slug': typeof LocationsSlugRoute
   '/demo/table': typeof DemoTableRoute
   '/keystatic/$': typeof KeystaticSplatRoute
+  '/locations/$slug': typeof LocationsSlugRoute
   '/keystatic/': typeof KeystaticIndexRoute
   '/api/keystatic/$': typeof ApiKeystaticSplatRoute
   '/api/keystatic/': typeof ApiKeystaticIndexRoute
@@ -95,9 +95,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/timeline'
-    | '/locations/$slug'
     | '/demo/table'
     | '/keystatic/$'
+    | '/locations/$slug'
     | '/keystatic/'
     | '/api/keystatic/$'
     | '/api/keystatic/'
@@ -105,9 +105,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/timeline'
-    | '/locations/$slug'
     | '/demo/table'
     | '/keystatic/$'
+    | '/locations/$slug'
     | '/keystatic'
     | '/api/keystatic/$'
     | '/api/keystatic'
@@ -115,9 +115,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/timeline'
-    | '/locations/$slug'
     | '/demo/table'
     | '/keystatic/$'
+    | '/locations/$slug'
     | '/keystatic/'
     | '/api/keystatic/$'
     | '/api/keystatic/'
@@ -126,9 +126,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   TimelineRoute: typeof TimelineRoute
-  LocationsSlugRoute: typeof LocationsSlugRoute
   DemoTableRoute: typeof DemoTableRoute
   KeystaticSplatRoute: typeof KeystaticSplatRoute
+  LocationsSlugRoute: typeof LocationsSlugRoute
   KeystaticIndexRoute: typeof KeystaticIndexRoute
   ApiKeystaticSplatRoute: typeof ApiKeystaticSplatRoute
   ApiKeystaticIndexRoute: typeof ApiKeystaticIndexRoute
@@ -150,18 +150,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/$slug': {
-      id: '/locations/$slug'
-      path: '/locations/$slug'
-      fullPath: '/locations/$slug'
-      preLoaderRoute: typeof LocationsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/keystatic/': {
       id: '/keystatic/'
       path: '/keystatic'
       fullPath: '/keystatic/'
       preLoaderRoute: typeof KeystaticIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/$slug': {
+      id: '/locations/$slug'
+      path: '/locations/$slug'
+      fullPath: '/locations/$slug'
+      preLoaderRoute: typeof LocationsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/keystatic/$': {
@@ -198,9 +198,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   TimelineRoute: TimelineRoute,
-  LocationsSlugRoute: LocationsSlugRoute,
   DemoTableRoute: DemoTableRoute,
   KeystaticSplatRoute: KeystaticSplatRoute,
+  LocationsSlugRoute: LocationsSlugRoute,
   KeystaticIndexRoute: KeystaticIndexRoute,
   ApiKeystaticSplatRoute: ApiKeystaticSplatRoute,
   ApiKeystaticIndexRoute: ApiKeystaticIndexRoute,

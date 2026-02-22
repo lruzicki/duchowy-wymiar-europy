@@ -110,10 +110,10 @@ export function FigmaApp({ locations = [] }: FigmaAppProps) {
         <section id='projects'>
           <ProjectsMap locations={locations} />
         </section>
+        <CTASection onNavigate={scrollToSection} />
         <section id='contact'>
           <Contact />
         </section>
-        <CTASection onNavigate={scrollToSection} />
       </>
     );
   };
