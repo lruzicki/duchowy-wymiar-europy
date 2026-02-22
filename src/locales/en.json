@@ -57,5 +57,12 @@
   "map.noDescription": "No description",
   "map.dateUnfilled": "Date not provided",
   "map.people": "people",
-  "languageSwitcher.label": "Language"
+  "languageSwitcher.label": "Language",
+  "hero.badge": "Since 2008",
+  "hero.floatingLabel": "Active aid",
+  "hero.floatingValue": "Ukraine & Belarus",
+  "cta.heading": "Help begins with a single gesture",
+  "cta.body": "Every contribution matters. Join us and help those who need it most. Together we build a Europe founded on solidarity.",
+  "cta.btnProjects": "Explore our projects",
+  "cta.btnContact": "Write to us"
 }

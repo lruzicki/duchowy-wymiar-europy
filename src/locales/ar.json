@@ -57,5 +57,12 @@
   "map.noDescription": "لا يوجد وصف",
   "map.dateUnfilled": "التاريخ غير محدد",
   "map.people": "أشخاص",
-  "languageSwitcher.label": "اللغة"
+  "languageSwitcher.label": "اللغة",
+  "hero.badge": "منذ عام 2008",
+  "hero.floatingLabel": "مساعدة نشطة",
+  "hero.floatingValue": "أوكرانيا وبيلاروسيا",
+  "cta.heading": "المساعدة تبدأ بإيماءة واحدة",
+  "cta.body": "كل دعم مهم. انضم إلينا وساعد من يحتاجون إليه أكثر. معًا نبني أوروبا قائمة على التضامن.",
+  "cta.btnProjects": "اكتشف مشاريعنا",
+  "cta.btnContact": "اكتب لنا"
 }

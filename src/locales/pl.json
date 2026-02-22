@@ -57,5 +57,12 @@
   "map.noDescription": "Brak opisu",
   "map.dateUnfilled": "Data nieuzupełniona",
   "map.people": "osób",
-  "languageSwitcher.label": "Język"
+  "languageSwitcher.label": "Język",
+  "hero.badge": "Od 2008 roku",
+  "hero.floatingLabel": "Aktywna pomoc",
+  "hero.floatingValue": "Ukraina & Białoruś",
+  "cta.heading": "Pomoc zaczyna się od jednego gestu",
+  "cta.body": "Każde wsparcie ma znaczenie. Dołącz do nas i pomóż tym, którzy tego najbardziej potrzebują. Razem tworzymy Europę opartą na solidarności.",
+  "cta.btnProjects": "Poznaj nasze projekty",
+  "cta.btnContact": "Napisz do nas"
 }

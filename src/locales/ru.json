@@ -57,5 +57,12 @@
   "map.noDescription": "Описание отсутствует",
   "map.dateUnfilled": "Дата не указана",
   "map.people": "человек",
-  "languageSwitcher.label": "Язык"
+  "languageSwitcher.label": "Язык",
+  "hero.badge": "С 2008 года",
+  "hero.floatingLabel": "Активная помощь",
+  "hero.floatingValue": "Украина и Беларусь",
+  "cta.heading": "Помощь начинается с одного жеста",
+  "cta.body": "Каждая поддержка важна. Присоединяйтесь к нам и помогите тем, кто больше всего нуждается. Вместе мы строим Европу солидарности.",
+  "cta.btnProjects": "Узнать о наших проектах",
+  "cta.btnContact": "Написать нам"
 }
