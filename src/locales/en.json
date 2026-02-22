@@ -64,5 +64,10 @@
   "cta.heading": "Help begins with a single gesture",
   "cta.body": "Every contribution matters. Join us and help those who need it most. Together we build a Europe founded on solidarity.",
   "cta.btnProjects": "Explore our projects",
-  "cta.btnContact": "Write to us"
+  "cta.btnContact": "Write to us",
+  "map.seeMore": "See more",
+  "map.noLocations": "No locations in database",
+  "location.backToMap": "Back to map",
+  "location.noImages": "No images available",
+  "location.notFound": "Location not found"
 }

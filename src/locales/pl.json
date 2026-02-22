@@ -64,5 +64,10 @@
   "cta.heading": "Pomoc zaczyna się od jednego gestu",
   "cta.body": "Każde wsparcie ma znaczenie. Dołącz do nas i pomóż tym, którzy tego najbardziej potrzebują. Razem tworzymy Europę opartą na solidarności.",
   "cta.btnProjects": "Poznaj nasze projekty",
-  "cta.btnContact": "Napisz do nas"
+  "cta.btnContact": "Napisz do nas",
+  "map.seeMore": "Zobacz więcej",
+  "map.noLocations": "Brak lokalizacji w bazie",
+  "location.backToMap": "Powrót do mapy",
+  "location.noImages": "Brak zdjęć",
+  "location.notFound": "Lokalizacja nie znaleziona"
 }

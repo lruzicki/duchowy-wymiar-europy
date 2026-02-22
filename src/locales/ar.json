@@ -64,5 +64,10 @@
   "cta.heading": "المساعدة تبدأ بإيماءة واحدة",
   "cta.body": "كل دعم مهم. انضم إلينا وساعد من يحتاجون إليه أكثر. معًا نبني أوروبا قائمة على التضامن.",
   "cta.btnProjects": "اكتشف مشاريعنا",
-  "cta.btnContact": "اكتب لنا"
+  "cta.btnContact": "اكتب لنا",
+  "map.seeMore": "عرض المزيد",
+  "map.noLocations": "لا توجد مواقع في قاعدة البيانات",
+  "location.backToMap": "العودة إلى الخريطة",
+  "location.noImages": "لا تتوفر صور",
+  "location.notFound": "الموقع غير موجود"
 }

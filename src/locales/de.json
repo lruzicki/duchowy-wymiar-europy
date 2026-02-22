@@ -64,5 +64,10 @@
   "cta.heading": "Hilfe beginnt mit einer Geste",
   "cta.body": "Jede Unterstützung zählt. Schließen Sie sich uns an und helfen Sie denen, die es am meisten brauchen. Gemeinsam bauen wir ein Europa auf Solidarität.",
   "cta.btnProjects": "Unsere Projekte entdecken",
-  "cta.btnContact": "Schreiben Sie uns"
+  "cta.btnContact": "Schreiben Sie uns",
+  "map.seeMore": "Mehr sehen",
+  "map.noLocations": "Keine Standorte in der Datenbank",
+  "location.backToMap": "Zurück zur Karte",
+  "location.noImages": "Keine Bilder vorhanden",
+  "location.notFound": "Standort nicht gefunden"
 }
