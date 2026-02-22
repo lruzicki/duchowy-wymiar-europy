@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Heart, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Button } from '@/components/ui/button';
 import { AboutProjectPage } from './AboutProjectPage';
 import { Contact } from './Contact';
 import { Footer } from './Footer';
@@ -10,6 +13,36 @@ import type { LocationListItem } from '@/lib/locations';
 
 interface FigmaAppProps {
   locations?: LocationListItem[];
+}
+
+function CTASection({ onNavigate }: { onNavigate: (section: string) => void }) {
+  const { t } = useTranslation();
+  return (
+    <section className="relative overflow-hidden bg-primary py-20 md:py-28">
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/20">
+          <Heart className="size-6 text-white" />
+        </div>
+        <h2 className="text-3xl font-semibold leading-tight text-primary-foreground md:text-5xl">
+          {t('cta.heading')}
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/70">
+          {t('cta.body')}
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Button size="lg" variant="secondary" className="gap-2" onClick={() => onNavigate('projects')}>
+            {t('cta.btnProjects')}
+            <ArrowRight className="size-4" />
+          </Button>
+          <a href="mailto:kontakt@dwe.org.pl">
+            <Button size="lg" variant="outline" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              {t('cta.btnContact')}
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function FigmaApp({ locations = [] }: FigmaAppProps) {
@@ -80,6 +113,7 @@ export function FigmaApp({ locations = [] }: FigmaAppProps) {
         <section id='contact'>
           <Contact />
         </section>
+        <CTASection onNavigate={scrollToSection} />
       </>
     );
   };
