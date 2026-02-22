@@ -2,7 +2,11 @@ import { collection, config, fields } from '@keystatic/core'
 
 export default config({
   storage: {
-    kind: 'local',
+    kind: 'github',
+    repo: {
+      owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER ?? 'OWNER',
+      name: process.env.KEYSTATIC_GITHUB_REPO_NAME ?? 'REPO',
+    },
   },
   collections: {
     locations: collection({
@@ -21,7 +25,17 @@ export default config({
         ),
         summary: fields.text({ label: 'Summary', multiline: true }),
         content: fields.markdoc({ label: 'Content' }),
-        coverImage: fields.image({ label: 'Cover Image', directory: 'public/images/locations' }),
+        city: fields.text({ label: 'City' }),
+        country: fields.text({ label: 'Country' }),
+        date: fields.text({ label: 'Date / Period' }),
+        images: fields.array(
+          fields.image({
+            label: 'Image',
+            directory: 'public/images/locations',
+            publicPath: '/images/locations/',
+          }),
+          { label: 'Images' }
+        ),
       },
     }),
   },
