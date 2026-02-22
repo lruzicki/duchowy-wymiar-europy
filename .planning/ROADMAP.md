@@ -12,7 +12,7 @@ This is a brownfield polish-and-ship project. The core application (map, Keystat
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Internationalization** - All six languages (PL, EN, DE, UK, RU, AR) render correctly from browser auto-detection
+- [x] **Phase 1: Internationalization** - All six languages (PL, EN, DE, UK, RU, AR) render correctly from browser auto-detection
 - [ ] **Phase 2: Content & Polish** - Map pins show image carousels, all data in Keystatic, site branded and clean
 - [ ] **Phase 3: Deployment** - Site live on Vercel with GitHub storage mode and all environment variables set
 
@@ -30,24 +30,31 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 6 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Install react-i18next and create all 6 translation files (PL master)
+- [x] 01-01-PLAN.md — Install react-i18next and create all 6 translation files (PL master)
 - [x] 01-02-PLAN.md — TDD: locale detection utility (base-tag matching, ru-UA exception, Polish fallback)
-- [ ] 01-03-PLAN.md — Wire I18nextProvider in root layout with browser locale detection and Arabic RTL
-- [ ] 01-04-PLAN.md — Language switcher component (shadcn/ui dropdown + emoji flags) in Navigation
+- [x] 01-03-PLAN.md — Wire I18nextProvider in root layout with browser locale detection and Arabic RTL
+- [x] 01-04-PLAN.md — Language switcher component (shadcn/ui dropdown + emoji flags) in Navigation
 - [x] 01-05-PLAN.md — Translate all UI component strings with useTranslation()
-- [ ] 01-06-PLAN.md — Human verify: language switching, RTL, auto-detection, fallback
+- [x] 01-06-PLAN.md — Human verify: language switching, RTL, auto-detection, fallback
 
 ### Phase 2: Content & Polish
-**Goal**: The map and site content are complete, clean, and managed entirely through Keystatic
+**Goal**: The map and site content are complete, clean, and managed entirely through Keystatic; homepage is redesigned with hero two-column layout and CTA section; site branding is correct
 **Depends on**: Phase 1
 **Requirements**: CMS-01, CMS-02, CMS-03, CMS-04, CMS-05, BRAND-01, BRAND-02, BRAND-03
 **Success Criteria** (what must be TRUE):
-  1. Clicking a map pin opens a dialog with an image carousel showing multiple photos (prev/next navigation works)
+  1. Clicking a map pin opens a minimal popup with a link to a dedicated location page showing an image carousel with prev/next navigation
   2. No hardcoded project data exists in source code — all location entries come from Keystatic
   3. No Unsplash placeholder images are visible anywhere on the site
   4. The browser tab, meta description, and any shared link preview show "Duchowy Wymiar Europy" (not "TanStack Start Starter")
   5. TanStack DevTools panels do not appear in a production build
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Extend Keystatic schema (images array, city, country, date) and switch to GitHub storage mode
+- [ ] 02-02-PLAN.md — Hero redesign (two-column, badge, floating card) and CTA section with i18n strings
+- [ ] 02-03-PLAN.md — Branding meta tags (title, description, OG) and DevTools dev-only gate
+- [ ] 02-04-PLAN.md — Refactor ProjectsMap to CMS-only data, create /locations/[slug] pages with image carousel
+- [ ] 02-05-PLAN.md — Human verify: all Phase 2 requirements confirmed visually
 
 ### Phase 3: Deployment
 **Goal**: The site is publicly accessible on Vercel with Keystatic GitHub mode fully operational
@@ -66,6 +73,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Internationalization | 5/6 | In Progress|  |
-| 2. Content & Polish | 0/TBD | Not started | - |
+| 1. Internationalization | 6/6 | Complete | 2026-02-22 |
+| 2. Content & Polish | 0/5 | Not started | - |
 | 3. Deployment | 0/TBD | Not started | - |
