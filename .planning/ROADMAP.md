@@ -13,7 +13,7 @@ This is a brownfield polish-and-ship project. The core application (map, Keystat
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Internationalization** - All six languages (PL, EN, DE, UK, RU, AR) render correctly from browser auto-detection
-- [ ] **Phase 2: Content & Polish** - Map pins show image carousels, all data in Keystatic, site branded and clean
+- [x] **Phase 2: Content & Polish** - Map pins show image carousels, all data in Keystatic, site branded and clean
 - [ ] **Phase 3: Deployment** - Site live on Vercel with GitHub storage mode and all environment variables set
 
 ## Phase Details
@@ -54,7 +54,7 @@ Plans:
 - [x] 02-02-PLAN.md — Hero redesign (two-column, badge, floating card) and CTA section with i18n strings
 - [x] 02-03-PLAN.md — Branding meta tags (title, description, OG) and DevTools dev-only gate
 - [x] 02-04-PLAN.md — Refactor ProjectsMap to CMS-only data, create /locations/[slug] pages with image carousel
-- [ ] 02-05-PLAN.md — Human verify: all Phase 2 requirements confirmed visually
+- [x] 02-05-PLAN.md — Human verify: all Phase 2 requirements confirmed visually
 
 ### Phase 3: Deployment
 **Goal**: The site is publicly accessible on Vercel with Keystatic GitHub mode fully operational
@@ -74,5 +74,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Internationalization | 6/6 | Complete | 2026-02-22 |
-| 2. Content & Polish | 4/5 | In progress | - |
+| 2. Content & Polish | 5/5 | Complete | 2026-02-22 |
 | 3. Deployment | 0/TBD | Not started | - |
