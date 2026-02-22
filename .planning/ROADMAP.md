@@ -34,7 +34,7 @@ Plans:
 - [x] 01-02-PLAN.md — TDD: locale detection utility (base-tag matching, ru-UA exception, Polish fallback)
 - [ ] 01-03-PLAN.md — Wire I18nextProvider in root layout with browser locale detection and Arabic RTL
 - [ ] 01-04-PLAN.md — Language switcher component (shadcn/ui dropdown + emoji flags) in Navigation
-- [ ] 01-05-PLAN.md — Translate all UI component strings with useTranslation()
+- [x] 01-05-PLAN.md — Translate all UI component strings with useTranslation()
 - [ ] 01-06-PLAN.md — Human verify: language switching, RTL, auto-detection, fallback
 
 ### Phase 2: Content & Polish
@@ -66,6 +66,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Internationalization | 3/6 | In Progress|  |
+| 1. Internationalization | 4/6 | In Progress|  |
 | 2. Content & Polish | 0/TBD | Not started | - |
 | 3. Deployment | 0/TBD | Not started | - |
