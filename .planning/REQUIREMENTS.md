@@ -15,9 +15,9 @@
 
 ### Internationalization
 
-- [ ] **I18N-01**: Site auto-detects browser language and displays content in the matching language (PL, EN, DE, UK, RU, AR), falling back to Polish
+- [x] **I18N-01**: Site auto-detects browser language and displays content in the matching language (PL, EN, DE, UK, RU, AR), falling back to Polish
 - [x] **I18N-02**: Polish is the master language; all 6 language strings defined in translation files
-- [ ] **I18N-03**: Arabic layout renders correctly with RTL text direction
+- [x] **I18N-03**: Arabic layout renders correctly with RTL text direction
 - [x] **I18N-04**: All visible UI text, section headings, and navigation labels are translated in all 6 languages
 
 ### Content Management

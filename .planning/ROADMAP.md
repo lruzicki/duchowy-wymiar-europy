@@ -66,6 +66,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Internationalization | 2/6 | In Progress|  |
+| 1. Internationalization | 3/6 | In Progress|  |
 | 2. Content & Polish | 0/TBD | Not started | - |
 | 3. Deployment | 0/TBD | Not started | - |
