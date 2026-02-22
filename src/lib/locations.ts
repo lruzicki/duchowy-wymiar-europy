@@ -1,7 +1,10 @@
 import { createServerFn } from '@tanstack/react-start'
 
 export type LocationListItem = {
-  coverImage: string | null
+  images: string[]
+  city: string
+  country: string
+  date: string
   coordinates: {
     lat: number
     lng: number
@@ -28,7 +31,13 @@ function normalizeLocationName(value: unknown, fallback: string) {
 
   if (value && typeof value === 'object') {
     const slugField = value as SlugFieldValue
-    return pickString(slugField.value, pickString(slugField.name, pickString(slugField.slug, fallback)))
+    return pickString(
+      (slugField as { value?: unknown }).value,
+      pickString(
+        (slugField as { name?: unknown }).name,
+        pickString((slugField as { slug?: unknown }).slug, fallback)
+      )
+    )
   }
 
   return fallback
@@ -62,12 +71,15 @@ export const getLocations = createServerFn({ method: 'GET' }).handler(async () =
 
   return entries
     .map((item) => {
-      const entry = item.entry as {
+      const entry = item.entry as unknown as {
         coordinates?: {
           lat?: number
           lng?: number
         }
-        coverImage?: unknown
+        images?: unknown[]
+        city?: unknown
+        country?: unknown
+        date?: unknown
         name?: unknown
         summary?: unknown
       }
@@ -77,8 +89,14 @@ export const getLocations = createServerFn({ method: 'GET' }).handler(async () =
 
       if (typeof lat !== 'number' || typeof lng !== 'number') return null
 
+      const rawImages = Array.isArray(entry.images) ? entry.images : []
+      const images = rawImages.map((img) => normalizeImage(img)).filter((s): s is string => s !== null)
+
       return {
-        coverImage: normalizeImage(entry.coverImage),
+        images,
+        city: pickString(entry.city),
+        country: pickString(entry.country),
+        date: pickString(entry.date),
         coordinates: { lat, lng },
         name: normalizeLocationName(entry.name, item.slug),
         slug: item.slug,
