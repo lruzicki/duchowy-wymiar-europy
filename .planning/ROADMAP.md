@@ -52,7 +52,7 @@ Plans:
 Plans:
 - [ ] 02-01-PLAN.md — Extend Keystatic schema (images array, city, country, date) and switch to GitHub storage mode
 - [x] 02-02-PLAN.md — Hero redesign (two-column, badge, floating card) and CTA section with i18n strings
-- [ ] 02-03-PLAN.md — Branding meta tags (title, description, OG) and DevTools dev-only gate
+- [x] 02-03-PLAN.md — Branding meta tags (title, description, OG) and DevTools dev-only gate
 - [ ] 02-04-PLAN.md — Refactor ProjectsMap to CMS-only data, create /locations/[slug] pages with image carousel
 - [ ] 02-05-PLAN.md — Human verify: all Phase 2 requirements confirmed visually
 
@@ -74,5 +74,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Internationalization | 6/6 | Complete | 2026-02-22 |
-| 2. Content & Polish | 2/5 | In progress | - |
+| 2. Content & Polish | 3/5 | In progress | - |
 | 3. Deployment | 0/TBD | Not started | - |

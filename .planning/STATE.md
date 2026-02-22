@@ -63,6 +63,7 @@ Recent decisions affecting current work:
 - [Phase 01-internationalization Plan 05]: Project content data (projectsData titles/descriptions) left untranslated — CMS content translation deferred per scope boundary; arrays needing t() must be inside component function, not module level
 - [Phase 01-internationalization Plan 06]: Phase 1 success criteria all confirmed by human visual inspection — no code changes required at verification stage
 - [Phase 02-content-polish Plan 02]: CTASection defined inline in FigmaApp.tsx (not a separate file) — single-use component, co-location keeps structure simpler; mailto:kontakt@dwe.org.pl used as plain anchor for CTA contact button
+- [Phase 02-content-polish Plan 03]: import.meta.env.DEV wraps TanStackDevtools render — imports kept unconditional, tree-shaken by @tanstack/devtools-vite plugin at build time
 
 ### Pending Todos
 
@@ -76,5 +77,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 02-02-PLAN.md (Hero redesign — two-column layout, Badge, floating card, CTASection; BRAND-02 satisfied)
+Stopped at: Completed 02-03-PLAN.md (site branding — correct title, meta description, Open Graph tags, devtools gated to DEV; BRAND-01 and BRAND-03 satisfied)
 Resume file: None

@@ -30,9 +30,9 @@
 
 ### Site Branding & Polish
 
-- [ ] **BRAND-01**: Page `<title>`, meta description, and Open Graph tags updated to "Duchowy Wymiar Europy"
+- [x] **BRAND-01**: Page `<title>`, meta description, and Open Graph tags updated to "Duchowy Wymiar Europy"
 - [x] **BRAND-02**: Placeholder Unsplash images removed; image slots managed via Keystatic (empty until filled by editors)
-- [ ] **BRAND-03**: DevTools (TanStack React DevTools, Router DevTools) disabled in production builds via environment check
+- [x] **BRAND-03**: DevTools (TanStack React DevTools, Router DevTools) disabled in production builds via environment check
 
 ### Deployment
 
@@ -70,9 +70,9 @@
 | CMS-03 | Phase 2 | Pending |
 | CMS-04 | Phase 2 | Pending |
 | CMS-05 | Phase 2 | Pending |
-| BRAND-01 | Phase 2 | Pending |
+| BRAND-01 | Phase 2 | Complete |
 | BRAND-02 | Phase 2 | Complete |
-| BRAND-03 | Phase 2 | Pending |
+| BRAND-03 | Phase 2 | Complete |
 | DEPLOY-01 | Phase 3 | Pending |
 | DEPLOY-02 | Phase 3 | Pending |
 | DEPLOY-03 | Phase 3 | Pending |
@@ -84,4 +84,4 @@
 
 ---
 *Requirements defined: 2026-02-22*
-*Last updated: 2026-02-22 — 01-02 complete: detectLocale utility (I18N-01, I18N-03 in progress)*
+*Last updated: 2026-02-22 — 02-03 complete: branding meta tags and DevTools gate (BRAND-01, BRAND-03 complete)*
