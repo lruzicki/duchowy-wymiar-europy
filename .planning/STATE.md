@@ -5,32 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-22)
 
 **Core value:** Visitors from across Europe can discover the organization's projects on an interactive map and read about them in their native language.
-**Current focus:** Phase 1 — Internationalization
+**Current focus:** Phase 2 — Content & Polish
 
 ## Current Position
 
-Phase: 1 of 3 (Internationalization)
-Plan: 5 completed in current phase
+Phase: 2 of 3 (Content & Polish)
+Plan: 3 of 5 completed in phase 2
 Status: In progress
-Last activity: 2026-02-22 — Plan 01-05 complete (component i18n wiring — useTranslation in all 7 UI components)
+Last activity: 2026-02-22 — Plan 02-03 complete (site branding — correct title, meta description, Open Graph tags, devtools gated to DEV; BRAND-01 and BRAND-03 satisfied)
 
-Progress: [████░░░░░░] 25%
+Progress: [████████░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: ~6 min
-- Total execution time: ~0.50 hours
+- Total plans completed: 9
+- Average duration: ~5 min
+- Total execution time: ~0.65 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-internationalization | 5 | ~31 min | ~6 min |
+| 01-internationalization | 6 | ~33 min | ~5.5 min |
+| 02-content-polish | 3 | ~13 min | ~4.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (~7 min), 01-02 (~7 min), 01-03 (~5 min), 01-04 (~8 min), 01-05 (~6 min)
+- Last 6 plans: 01-01 (~7 min), 01-02 (~7 min), 01-03 (~5 min), 01-04 (~8 min), 01-05 (~6 min), 01-06 (~2 min)
+- Phase 2 start: 02-01 (~4 min), 02-02 (~4 min)
 - Trend: On track
 
 *Updated after each plan completion*
@@ -38,6 +40,8 @@ Progress: [████░░░░░░] 25%
 | Phase 01-internationalization P03 | 5 | 1 task | 1 file |
 | Phase 01-internationalization P04 | 8 | 2 tasks | 3 files |
 | Phase 01-internationalization P05 | 6 | 2 tasks | 7 files |
+| Phase 02-content-polish P02 | 4 | 2 tasks | 8 files |
+| Phase 02-content-polish P03 | 5 | 2 tasks | 1 file |
 
 ## Accumulated Context
 
@@ -57,6 +61,8 @@ Recent decisions affecting current work:
 - [Phase 01-internationalization Plan 03]: I18nextProvider in shellComponent (RootDocument) — SSR guard with typeof navigator, synchronous changeLanguage before render, html dir='rtl' for Arabic
 - [Phase 01-internationalization Plan 04]: shadcn/ui DropdownMenu created manually using radix-ui package (CLI timeout); emoji flags for language icons (no icon library needed)
 - [Phase 01-internationalization Plan 05]: Project content data (projectsData titles/descriptions) left untranslated — CMS content translation deferred per scope boundary; arrays needing t() must be inside component function, not module level
+- [Phase 01-internationalization Plan 06]: Phase 1 success criteria all confirmed by human visual inspection — no code changes required at verification stage
+- [Phase 02-content-polish Plan 02]: CTASection defined inline in FigmaApp.tsx (not a separate file) — single-use component, co-location keeps structure simpler; mailto:kontakt@dwe.org.pl used as plain anchor for CTA contact button
 
 ### Pending Todos
 
@@ -70,5 +76,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 01-04-PLAN.md (language switcher — DropdownMenu with emoji flags integrated into Navigation)
+Stopped at: Completed 02-02-PLAN.md (Hero redesign — two-column layout, Badge, floating card, CTASection; BRAND-02 satisfied)
 Resume file: None

@@ -31,7 +31,7 @@
 ### Site Branding & Polish
 
 - [ ] **BRAND-01**: Page `<title>`, meta description, and Open Graph tags updated to "Duchowy Wymiar Europy"
-- [ ] **BRAND-02**: Placeholder Unsplash images removed; image slots managed via Keystatic (empty until filled by editors)
+- [x] **BRAND-02**: Placeholder Unsplash images removed; image slots managed via Keystatic (empty until filled by editors)
 - [ ] **BRAND-03**: DevTools (TanStack React DevTools, Router DevTools) disabled in production builds via environment check
 
 ### Deployment
@@ -71,7 +71,7 @@
 | CMS-04 | Phase 2 | Pending |
 | CMS-05 | Phase 2 | Pending |
 | BRAND-01 | Phase 2 | Pending |
-| BRAND-02 | Phase 2 | Pending |
+| BRAND-02 | Phase 2 | Complete |
 | BRAND-03 | Phase 2 | Pending |
 | DEPLOY-01 | Phase 3 | Pending |
 | DEPLOY-02 | Phase 3 | Pending |
