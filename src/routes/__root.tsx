@@ -11,22 +11,17 @@ import type { SupportedLocale } from '@/lib/detect-locale'
 export const Route = createRootRoute({
   head: () => ({
     meta: [
-      {
-        charSet: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
-      {
-        title: 'TanStack Start Starter',
-      },
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'Duchowy Wymiar Europy' },
+      { name: 'description', content: 'Fundacja Duchowy Wymiar Europy — Sumienie. Solidarność. Odpowiedzialność. Pomagamy ofiarom wojny na Ukrainie i więźniom politycznym od 2008 roku.' },
+      { property: 'og:title', content: 'Duchowy Wymiar Europy' },
+      { property: 'og:description', content: 'Fundacja Duchowy Wymiar Europy — Sumienie. Solidarność. Odpowiedzialność. Pomagamy ofiarom wojny na Ukrainie i więźniom politycznym od 2008 roku.' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: '/images/locations/data/zdjecie-o-fundacji.jpg' },
     ],
     links: [
-      {
-        rel: 'stylesheet',
-        href: appCss,
-      },
+      { rel: 'stylesheet', href: appCss },
     ],
   }),
   shellComponent: RootDocument,
@@ -51,17 +46,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <I18nextProvider i18n={i18n}>
           {children}
         </I18nextProvider>
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
+        {import.meta.env.DEV && (
+          <TanStackDevtools
+            config={{ position: 'bottom-right' }}
+            plugins={[
+              {
+                name: 'Tanstack Router',
+                render: <TanStackRouterDevtoolsPanel />,
+              },
+            ]}
+          />
+        )}
         <Scripts />
       </body>
     </html>
