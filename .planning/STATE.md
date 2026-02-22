@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-02-22)
 Phase: 2 of 3 (Content & Polish)
 Plan: 3 of 5 completed in phase 2
 Status: In progress
-Last activity: 2026-02-22 — Plan 02-03 complete (site branding — correct title, meta description, Open Graph tags, devtools gated to DEV; BRAND-01 and BRAND-03 satisfied)
+Last activity: 2026-02-22 — Plan 02-01 complete (Keystatic schema extended with images array, city/country/date, github storage; getLocations() updated; .env.example created; CMS-01, CMS-04, CMS-05 Phase 2 portion satisfied)
 
 Progress: [████████░░] 40%
 
@@ -40,6 +40,7 @@ Progress: [████████░░] 40%
 | Phase 01-internationalization P03 | 5 | 1 task | 1 file |
 | Phase 01-internationalization P04 | 8 | 2 tasks | 3 files |
 | Phase 01-internationalization P05 | 6 | 2 tasks | 7 files |
+| Phase 02-content-polish P01 | 7 | 3 tasks | 4 files |
 | Phase 02-content-polish P02 | 4 | 2 tasks | 8 files |
 | Phase 02-content-polish P03 | 5 | 2 tasks | 1 file |
 
@@ -64,6 +65,7 @@ Recent decisions affecting current work:
 - [Phase 01-internationalization Plan 06]: Phase 1 success criteria all confirmed by human visual inspection — no code changes required at verification stage
 - [Phase 02-content-polish Plan 02]: CTASection defined inline in FigmaApp.tsx (not a separate file) — single-use component, co-location keeps structure simpler; mailto:kontakt@dwe.org.pl used as plain anchor for CTA contact button
 - [Phase 02-content-polish Plan 03]: import.meta.env.DEV wraps TanStackDevtools render — imports kept unconditional, tree-shaken by @tanstack/devtools-vite plugin at build time
+- [Phase 02-content-polish Plan 01]: fields.array(fields.image()) confirmed working in @keystatic/core 0.5.48; item.entry requires double cast (as unknown as) for partial shape typing; coverImage removed entirely in favor of images array
 
 ### Pending Todos
 
@@ -77,5 +79,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 02-03-PLAN.md (site branding — correct title, meta description, Open Graph tags, devtools gated to DEV; BRAND-01 and BRAND-03 satisfied)
+Stopped at: Completed 02-01-PLAN.md (Keystatic schema extension — images array, city/country/date, github storage, getLocations updated, .env.example created)
 Resume file: None

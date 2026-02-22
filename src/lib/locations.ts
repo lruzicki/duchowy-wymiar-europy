@@ -60,6 +60,10 @@ function normalizeImage(value: unknown) {
   return null
 }
 
+function normalizeImagePath(path: string): string {
+  return path.startsWith('public/') ? path.slice(7) : path
+}
+
 export const getLocations = createServerFn({ method: 'GET' }).handler(async () => {
   const [{ createReader }, { default: keystaticConfig }] = await Promise.all([
     import('@keystatic/core/reader'),
@@ -90,7 +94,10 @@ export const getLocations = createServerFn({ method: 'GET' }).handler(async () =
       if (typeof lat !== 'number' || typeof lng !== 'number') return null
 
       const rawImages = Array.isArray(entry.images) ? entry.images : []
-      const images = rawImages.map((img) => normalizeImage(img)).filter((s): s is string => s !== null)
+      const images = rawImages
+        .map((img) => normalizeImage(img))
+        .filter((s): s is string => s !== null)
+        .map(normalizeImagePath)
 
       return {
         images,
@@ -105,3 +112,46 @@ export const getLocations = createServerFn({ method: 'GET' }).handler(async () =
     })
     .filter((item): item is LocationListItem => item !== null)
 })
+
+export const getLocationBySlug = createServerFn({ method: 'GET' })
+  .inputValidator((slug: string) => slug)
+  .handler(async ({ data: slug }) => {
+    const [{ createReader }, { default: keystaticConfig }] = await Promise.all([
+      import('@keystatic/core/reader'),
+      import('../../keystatic.config'),
+    ])
+    const reader = createReader(process.cwd(), keystaticConfig)
+    const entry = await reader.collections.locations.read(slug)
+    if (!entry) return null
+
+    const typedEntry = entry as unknown as {
+      coordinates?: { lat?: number; lng?: number }
+      images?: unknown[]
+      city?: unknown
+      country?: unknown
+      date?: unknown
+      name?: unknown
+      summary?: unknown
+    }
+
+    const lat = typedEntry.coordinates?.lat
+    const lng = typedEntry.coordinates?.lng
+    if (typeof lat !== 'number' || typeof lng !== 'number') return null
+
+    const rawImages = Array.isArray(typedEntry.images) ? typedEntry.images : []
+    const images = rawImages
+      .map(img => normalizeImage(img))
+      .filter((s): s is string => s !== null)
+      .map(normalizeImagePath)
+
+    return {
+      images,
+      city: pickString(typedEntry.city),
+      country: pickString(typedEntry.country),
+      date: pickString(typedEntry.date),
+      coordinates: { lat, lng },
+      name: normalizeLocationName(typedEntry.name, slug),
+      slug,
+      summary: pickString(typedEntry.summary),
+    } satisfies LocationListItem
+  })
