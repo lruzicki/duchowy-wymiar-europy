@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-02-22)
 ## Current Position
 
 Phase: 2 of 3 (Content & Polish)
-Plan: 3 of 5 completed in phase 2
+Plan: 4 of 5 completed in phase 2
 Status: In progress
-Last activity: 2026-02-22 — Plan 02-01 complete (Keystatic schema extended with images array, city/country/date, github storage; getLocations() updated; .env.example created; CMS-01, CMS-04, CMS-05 Phase 2 portion satisfied)
+Last activity: 2026-02-22 — Plan 02-04 complete (CMS-driven map with location detail pages; getLocationBySlug added; hardcoded projectsData removed; /locations/$slug route with image carousel; 5 new i18n keys in all 6 locales; CMS-02, CMS-03, BRAND-02 satisfied)
 
-Progress: [████████░░] 40%
+Progress: [█████████░] 47%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: ~5 min
-- Total execution time: ~0.65 hours
+- Total execution time: ~0.72 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-internationalization | 6 | ~33 min | ~5.5 min |
-| 02-content-polish | 3 | ~13 min | ~4.3 min |
+| 02-content-polish | 4 | ~21 min | ~5.3 min |
 
 **Recent Trend:**
-- Last 6 plans: 01-01 (~7 min), 01-02 (~7 min), 01-03 (~5 min), 01-04 (~8 min), 01-05 (~6 min), 01-06 (~2 min)
-- Phase 2 start: 02-01 (~4 min), 02-02 (~4 min)
+- Last 6 plans: 01-04 (~8 min), 01-05 (~6 min), 01-06 (~2 min), 02-01 (~4 min), 02-02 (~4 min), 02-03 (~5 min)
+- Phase 2: 02-01 (~4 min), 02-02 (~4 min), 02-03 (~5 min), 02-04 (~8 min)
 - Trend: On track
 
 *Updated after each plan completion*
@@ -43,6 +43,7 @@ Progress: [████████░░] 40%
 | Phase 02-content-polish P01 | 7 | 3 tasks | 4 files |
 | Phase 02-content-polish P02 | 4 | 2 tasks | 8 files |
 | Phase 02-content-polish P03 | 5 | 2 tasks | 1 file |
+| Phase 02-content-polish P04 | 8 | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,7 @@ Recent decisions affecting current work:
 - [Phase 02-content-polish Plan 02]: CTASection defined inline in FigmaApp.tsx (not a separate file) — single-use component, co-location keeps structure simpler; mailto:kontakt@dwe.org.pl used as plain anchor for CTA contact button
 - [Phase 02-content-polish Plan 03]: import.meta.env.DEV wraps TanStackDevtools render — imports kept unconditional, tree-shaken by @tanstack/devtools-vite plugin at build time
 - [Phase 02-content-polish Plan 01]: fields.array(fields.image()) confirmed working in @keystatic/core 0.5.48; item.entry requires double cast (as unknown as) for partial shape typing; coverImage removed entirely in favor of images array
+- [Phase 02-content-polish Plan 04]: @tanstack/react-start@1.160.0 uses .inputValidator() not .validator() for typed server function inputs; routeTree.gen.ts manually updated for immediate TS correctness; normalizeImagePath applied in both getLocations and getLocationBySlug
 
 ### Pending Todos
 
@@ -79,5 +81,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 02-01-PLAN.md (Keystatic schema extension — images array, city/country/date, github storage, getLocations updated, .env.example created)
+Stopped at: Completed 02-04-PLAN.md (CMS-driven map, getLocationBySlug, /locations/$slug route with image carousel, 5 new i18n keys in all 6 locales)
 Resume file: None

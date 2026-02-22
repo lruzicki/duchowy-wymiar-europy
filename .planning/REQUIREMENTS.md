@@ -23,8 +23,8 @@
 ### Content Management
 
 - [x] **CMS-01**: Keystatic `locations` collection supports an array of images per entry (replaces single coverImage field)
-- [ ] **CMS-02**: Clicking a map pin opens a popup dialog with an image carousel (prev/next navigation)
-- [ ] **CMS-03**: All hardcoded project data removed from source code and replaced with Keystatic-managed content
+- [x] **CMS-02**: Clicking a map pin opens a popup dialog with an image carousel (prev/next navigation)
+- [x] **CMS-03**: All hardcoded project data removed from source code and replaced with Keystatic-managed content
 - [x] **CMS-04**: Keystatic configured for GitHub storage mode so content edits save as Git commits
 - [x] **CMS-05**: GitHub OAuth credentials wired so Keystatic admin works on Vercel deployment
 
@@ -66,8 +66,8 @@
 | I18N-03 | Phase 1 | In progress (01-02: locale detection) |
 | I18N-04 | Phase 1 | Complete |
 | CMS-01 | Phase 2 | Complete |
-| CMS-02 | Phase 2 | Pending |
-| CMS-03 | Phase 2 | Pending |
+| CMS-02 | Phase 2 | Complete |
+| CMS-03 | Phase 2 | Complete |
 | CMS-04 | Phase 2 | Complete |
 | CMS-05 | Phase 2 | Complete (Phase 2 portion — env docs + GitHub storage config; Vercel wiring deferred to Phase 3 DEPLOY-03) |
 | BRAND-01 | Phase 2 | Complete |
@@ -84,4 +84,4 @@
 
 ---
 *Requirements defined: 2026-02-22*
-*Last updated: 2026-02-22 — 02-01 complete: Keystatic schema extension, GitHub storage mode, .env.example (CMS-01, CMS-04, CMS-05 Phase 2 portion complete)*
+*Last updated: 2026-02-22 — 02-04 complete: CMS-driven map, /locations/$slug route with image carousel, hardcoded data removed (CMS-02, CMS-03, BRAND-02 complete)*
