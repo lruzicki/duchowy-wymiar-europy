@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, FileText, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 interface NavigationProps {
   onNavigate: (section: string) => void;
@@ -78,6 +79,7 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
               {t('nav.documents')}
               <ExternalLink className="w-3 h-3" />
             </Button>
+            <LanguageSwitcher />
           </div>
 
           <button
@@ -113,6 +115,9 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
               {t('nav.documents')}
               <ExternalLink className="w-3 h-3" />
             </button>
+            <div className="px-4 py-3">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       )}
