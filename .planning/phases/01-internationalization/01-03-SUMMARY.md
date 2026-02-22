@@ -73,7 +73,7 @@ Each task was committed atomically:
 
 1. **Task 1: Wire I18nextProvider and locale detection in root layout** - `b3d322a` (feat)
 
-**Plan metadata:** *(to be filled after final metadata commit)*
+**Plan metadata:** `868d8e5` (docs: complete i18n root provider wiring plan)
 
 ## Files Created/Modified
 - `src/routes/__root.tsx` - Added I18nextProvider wrapper, locale detection from navigator.languages, SSR guard, html lang/dir attributes
