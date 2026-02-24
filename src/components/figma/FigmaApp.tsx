@@ -48,6 +48,35 @@ function CTASection({ onNavigate }: { onNavigate: (section: string) => void }) {
 export function FigmaApp({ locations = [] }: FigmaAppProps) {
   const [currentPage, setCurrentPage] = useState('hero');
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get('page');
+    const hash = window.location.hash.replace('#', '');
+
+    if (page === 'founders-page' || page === 'about-project-page') {
+      setCurrentPage(page);
+      return;
+    }
+
+    if (hash === 'hero' || hash === 'projects' || hash === 'contact') {
+      requestAnimationFrame(() => {
+        const element = document.getElementById(hash);
+        if (!element) {
+          return;
+        }
+
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      });
+    }
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     setCurrentPage(sectionId);
 

@@ -4,8 +4,8 @@ export default config({
   storage: {
     kind: 'github',
     repo: {
-      owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER ?? 'OWNER',
-      name: process.env.KEYSTATIC_GITHUB_REPO_NAME ?? 'REPO',
+      owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER ?? 'lruzicki',
+      name: process.env.KEYSTATIC_GITHUB_REPO_NAME ?? 'duchowy-wymiar-europy',
     },
   },
   collections: {
@@ -18,8 +18,16 @@ export default config({
         name: fields.slug({ name: { label: 'Location Name' } }),
         coordinates: fields.object(
           {
-            lat: fields.number({ label: 'Latitude' }),
-            lng: fields.number({ label: 'Longitude' }),
+            lat: fields.number({
+              label: 'Latitude',
+              step: 0.000001,
+              validation: { min: -90, max: 90, isRequired: true },
+            }),
+            lng: fields.number({
+              label: 'Longitude',
+              step: 0.000001,
+              validation: { min: -180, max: 180, isRequired: true },
+            }),
           },
           { label: 'Coordinates' }
         ),

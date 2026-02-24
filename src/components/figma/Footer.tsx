@@ -14,8 +14,8 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white">
-                <span className="text-slate-900">DWE</span>
+              <div className="h-10 w-10 overflow-hidden rounded-lg bg-white p-1">
+                <img src="/logo.png" alt="Duchowy Wymiar Europy" className="h-full w-full object-contain" />
               </div>
               <div className="font-medium">{t('footer.brandName')}</div>
             </div>

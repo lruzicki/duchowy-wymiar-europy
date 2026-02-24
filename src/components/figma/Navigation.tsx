@@ -48,8 +48,8 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <button onClick={() => handleNavClick('hero')} className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
-              DWE
+            <div className="w-12 h-12 rounded-full bg-white/95 p-1 shadow-sm ring-1 ring-slate-200/80 group-hover:scale-105 transition-transform">
+              <img src="/logo.png" alt="Duchowy Wymiar Europy" className="h-full w-full rounded-full object-contain" />
             </div>
             <div className="hidden sm:block">
               <div className="text-sm uppercase tracking-wider text-foreground/80">{t('nav.foundation')}</div>
