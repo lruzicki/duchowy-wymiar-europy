@@ -57,7 +57,7 @@ importers:
         specifier: ^0.561.0
         version: 0.561.0(react@19.2.4)
       nitro:
-        specifier: npm:nitro-nightly@latest
+        specifier: npm:nitro-nightly@3.0.1-20260213-154614-f663e76d
         version: nitro-nightly@3.0.1-20260213-154614-f663e76d(idb-keyval@6.2.2)(jiti@2.6.1)(lru-cache@11.2.6)(rollup@4.57.1)(vite@7.3.1(@types/node@22.19.11)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
       radix-ui:
         specifier: ^1.4.3
