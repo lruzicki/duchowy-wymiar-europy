@@ -1,4 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
+import { access } from 'node:fs/promises'
+import { join } from 'node:path'
 
 export type LocationListItem = {
   images: string[]
@@ -64,13 +66,38 @@ function normalizeImagePath(path: string): string {
   return path.startsWith('public/') ? path.slice(7) : path
 }
 
-export const getLocations = createServerFn({ method: 'GET' }).handler(async () => {
-  const [{ createReader }, { default: keystaticConfig }] = await Promise.all([
-    import('@keystatic/core/reader'),
-    import('../../keystatic.config'),
-  ])
+async function hasLocalContentDirectory() {
+  try {
+    await access(join(process.cwd(), 'content', 'locations'))
+    return true
+  } catch {
+    return false
+  }
+}
 
-  const reader = createReader(process.cwd(), keystaticConfig)
+async function createLocationsReader() {
+  const { default: keystaticConfig } = await import('../../keystatic.config')
+
+  if (await hasLocalContentDirectory()) {
+    const { createReader } = await import('@keystatic/core/reader')
+    return createReader(process.cwd(), keystaticConfig)
+  }
+
+  const { createGitHubReader } = await import('@keystatic/core/reader/github')
+  const owner = process.env.KEYSTATIC_GITHUB_REPO_OWNER ?? 'lruzicki'
+  const name = process.env.KEYSTATIC_GITHUB_REPO_NAME ?? 'duchowy-wymiar-europy'
+  const token = process.env.KEYSTATIC_GITHUB_TOKEN ?? process.env.GITHUB_TOKEN
+  const ref = process.env.KEYSTATIC_GITHUB_REF ?? process.env.VERCEL_GIT_COMMIT_REF
+
+  return createGitHubReader(keystaticConfig, {
+    repo: `${owner}/${name}`,
+    token,
+    ref,
+  })
+}
+
+export const getLocations = createServerFn({ method: 'GET' }).handler(async () => {
+  const reader = await createLocationsReader()
   const entries = await reader.collections.locations.all()
 
   return entries
@@ -116,11 +143,7 @@ export const getLocations = createServerFn({ method: 'GET' }).handler(async () =
 export const getLocationBySlug = createServerFn({ method: 'GET' })
   .inputValidator((slug: string) => slug)
   .handler(async ({ data: slug }) => {
-    const [{ createReader }, { default: keystaticConfig }] = await Promise.all([
-      import('@keystatic/core/reader'),
-      import('../../keystatic.config'),
-    ])
-    const reader = createReader(process.cwd(), keystaticConfig)
+    const reader = await createLocationsReader()
     const entry = await reader.collections.locations.read(slug)
     if (!entry) return null
 
