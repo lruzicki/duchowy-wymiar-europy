@@ -7,6 +7,7 @@
   "nav.founders": "Основатели и сотрудники",
   "nav.contact": "Контакт",
   "nav.documents": "Документы",
+  "nav.news": "Новости",
   "hero.title": "Фонд Духовное измерение Европы",
   "hero.tagline": "Совесть. Солидарность. Ответственность.",
   "hero.body1": "Фонд Духовное измерение Европы действует с 2008 года, объединяя мышление, чуткость и реальные действия. Мы верим, что Европа является сообществом совести — основанным на достоинстве человеческой личности и ответственности за других.",
@@ -69,5 +70,15 @@
   "map.noLocations": "Нет локаций в базе",
   "location.backToMap": "Вернуться к карте",
   "location.noImages": "Изображений нет",
-  "location.notFound": "Локация не найдена"
+  "location.notFound": "Локация не найдена",
+  "news.badge": "Обновления проекта",
+  "news.updatedAt": "Обновлено",
+  "news.fallback.title": "Текущий статус проекта",
+  "news.fallback.lead": "Эта страница готова для публикации актуальной информации о проекте. Весь контент можно редактировать в CMS (Keystatic).",
+  "news.fallback.coverPlaceholder": "Добавьте главное изображение в Keystatic, и оно появится здесь.",
+  "news.fallback.sectionTitle": "Раздел",
+  "news.fallback.emptySection": "В этом разделе пока нет контента. Заполните его в Keystatic.",
+  "news.fallback.sections.done.title": "Что уже сделано",
+  "news.fallback.sections.next.title": "Что дальше",
+  "news.fallback.sections.help.title": "Как помочь"
 }

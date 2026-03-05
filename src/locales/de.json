@@ -7,6 +7,7 @@
   "nav.founders": "Gründer und Mitarbeiter",
   "nav.contact": "Kontakt",
   "nav.documents": "Dokumente",
+  "nav.news": "Aktuelles",
   "hero.title": "Stiftung Spirituelle Dimension Europas",
   "hero.tagline": "Gewissen. Solidarität. Verantwortung.",
   "hero.body1": "Die Stiftung Spirituelle Dimension Europas ist seit 2008 tätig und verbindet Denken, Sensibilität und reales Handeln. Wir glauben, dass Europa eine Gewissensgemeinschaft ist — gegründet auf der Würde der menschlichen Person und der Verantwortung füreinander.",
@@ -69,5 +70,15 @@
   "map.noLocations": "Keine Standorte in der Datenbank",
   "location.backToMap": "Zurück zur Karte",
   "location.noImages": "Keine Bilder vorhanden",
-  "location.notFound": "Standort nicht gefunden"
+  "location.notFound": "Standort nicht gefunden",
+  "news.badge": "Projekt-Updates",
+  "news.updatedAt": "Aktualisiert",
+  "news.fallback.title": "Aktueller Projektstatus",
+  "news.fallback.lead": "Diese Seite ist bereit für laufende Informationen zum Projekt. Alle Inhalte können im CMS (Keystatic) bearbeitet werden.",
+  "news.fallback.coverPlaceholder": "Fügen Sie in Keystatic ein Titelbild hinzu, dann erscheint es hier.",
+  "news.fallback.sectionTitle": "Abschnitt",
+  "news.fallback.emptySection": "Dieser Abschnitt enthält noch keinen Inhalt. Bitte in Keystatic ergänzen.",
+  "news.fallback.sections.done.title": "Was wir bereits gemacht haben",
+  "news.fallback.sections.next.title": "Was als Nächstes kommt",
+  "news.fallback.sections.help.title": "Wie man helfen kann"
 }

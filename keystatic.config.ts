@@ -1,4 +1,35 @@
-import { collection, config, fields } from '@keystatic/core'
+import { collection, config, fields, singleton } from '@keystatic/core'
+
+const localeTextFields = (label: string, multiline = false) =>
+  fields.object(
+    {
+      pl: fields.text({ label: 'Polski', multiline }),
+      en: fields.text({ label: 'English', multiline }),
+      de: fields.text({ label: 'Deutsch', multiline }),
+      uk: fields.text({ label: 'Українська', multiline }),
+      ru: fields.text({ label: 'Русский', multiline }),
+      ar: fields.text({ label: 'العربية', multiline }),
+    },
+    { label }
+  )
+
+const localeRichTextFields = (label: string) =>
+  fields.object(
+    {
+      pl: fields.document({ label: 'Polski', formatting: true, links: true, dividers: true }),
+      en: fields.document({ label: 'English', formatting: true, links: true, dividers: true }),
+      de: fields.document({ label: 'Deutsch', formatting: true, links: true, dividers: true }),
+      uk: fields.document({
+        label: 'Українська',
+        formatting: true,
+        links: true,
+        dividers: true,
+      }),
+      ru: fields.document({ label: 'Русский', formatting: true, links: true, dividers: true }),
+      ar: fields.document({ label: 'العربية', formatting: true, links: true, dividers: true }),
+    },
+    { label }
+  )
 
 export default config({
   storage: {
@@ -43,6 +74,38 @@ export default config({
             publicPath: '/images/locations/',
           }),
           { label: 'Images' }
+        ),
+      },
+    }),
+  },
+  singletons: {
+    aktualnosci: singleton({
+      label: 'Aktualności',
+      path: 'content/aktualnosci',
+      format: 'json',
+      schema: {
+        updatedAt: fields.text({ label: 'Data aktualizacji (np. 2026-03-05)' }),
+        title: localeTextFields('Tytuł strony'),
+        lead: localeTextFields('Krótki opis', true),
+        coverImage: fields.image({
+          label: 'Obraz główny',
+          directory: 'public/images/aktualnosci',
+          publicPath: '/images/aktualnosci/',
+        }),
+        sections: fields.array(
+          fields.object(
+            {
+              key: fields.slug({
+                name: {
+                  label: 'Id sekcji (np. co-juz-zrobilismy)',
+                },
+              }),
+              title: localeTextFields('Tytuł sekcji'),
+              content: localeRichTextFields('Treść sekcji'),
+            },
+            { label: 'Sekcja' }
+          ),
+          { label: 'Sekcje' }
         ),
       },
     }),

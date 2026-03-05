@@ -7,6 +7,7 @@
   "nav.founders": "Założyciele i współpracownicy",
   "nav.contact": "Kontakt",
   "nav.documents": "Dokumenty",
+  "nav.news": "Aktualności",
   "hero.title": "Fundacja Duchowy Wymiar Europy",
   "hero.tagline": "Sumienie. Solidarność. Odpowiedzialność.",
   "hero.body1": "Fundacja Duchowy Wymiar Europy działa od 2008 roku, łącząc myślenie, wrażliwość i realne działanie. Wierzymy, że Europa jest wspólnotą sumienia — opartą na godności osoby ludzkiej i odpowiedzialności za innych.",
@@ -69,5 +70,15 @@
   "map.noLocations": "Brak lokalizacji w bazie",
   "location.backToMap": "Powrót do mapy",
   "location.noImages": "Brak zdjęć",
-  "location.notFound": "Lokalizacja nie znaleziona"
+  "location.notFound": "Lokalizacja nie znaleziona",
+  "news.badge": "Aktualizacje projektu",
+  "news.updatedAt": "Aktualizacja",
+  "news.fallback.title": "Aktualny status projektu",
+  "news.fallback.lead": "Ta strona jest przygotowana do publikowania bieżących informacji o postępach projektu. Treść możesz edytować w panelu CMS (Keystatic).",
+  "news.fallback.coverPlaceholder": "Dodaj obraz główny w Keystatic, aby pojawił się w tym miejscu.",
+  "news.fallback.sectionTitle": "Sekcja",
+  "news.fallback.emptySection": "Ta sekcja nie ma jeszcze treści. Uzupełnij ją w Keystatic.",
+  "news.fallback.sections.done.title": "Co już zrobiliśmy",
+  "news.fallback.sections.next.title": "Co dalej",
+  "news.fallback.sections.help.title": "Jak pomóc"
 }

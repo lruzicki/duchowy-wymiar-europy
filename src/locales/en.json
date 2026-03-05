@@ -7,6 +7,7 @@
   "nav.founders": "Founders and collaborators",
   "nav.contact": "Contact",
   "nav.documents": "Documents",
+  "nav.news": "News",
   "hero.title": "Foundation Spiritual Dimension of Europe",
   "hero.tagline": "Conscience. Solidarity. Responsibility.",
   "hero.body1": "The Foundation Spiritual Dimension of Europe has been active since 2008, combining thinking, sensitivity and real action. We believe that Europe is a community of conscience — built on the dignity of the human person and responsibility for others.",
@@ -69,5 +70,15 @@
   "map.noLocations": "No locations in database",
   "location.backToMap": "Back to map",
   "location.noImages": "No images available",
-  "location.notFound": "Location not found"
+  "location.notFound": "Location not found",
+  "news.badge": "Project updates",
+  "news.updatedAt": "Updated",
+  "news.fallback.title": "Current project status",
+  "news.fallback.lead": "This page is ready for publishing current updates about the project. You can edit all content in the CMS panel (Keystatic).",
+  "news.fallback.coverPlaceholder": "Add a cover image in Keystatic and it will appear here.",
+  "news.fallback.sectionTitle": "Section",
+  "news.fallback.emptySection": "This section has no content yet. Fill it in Keystatic.",
+  "news.fallback.sections.done.title": "What we have done",
+  "news.fallback.sections.next.title": "What is next",
+  "news.fallback.sections.help.title": "How to help"
 }

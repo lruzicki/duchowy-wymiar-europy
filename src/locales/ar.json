@@ -7,6 +7,7 @@
   "nav.founders": "المؤسسون والمتعاونون",
   "nav.contact": "اتصل بنا",
   "nav.documents": "وثائق",
+  "nav.news": "المستجدات",
   "hero.title": "مؤسسة البُعد الروحي لأوروبا",
   "hero.tagline": "الضمير. التضامن. المسؤولية.",
   "hero.body1": "تعمل مؤسسة البُعد الروحي لأوروبا منذ عام 2008، جامعةً بين التفكير والحساسية والعمل الفعلي. نؤمن بأن أوروبا مجتمع ضمير — قائم على كرامة الإنسان والمسؤولية تجاه الآخرين.",
@@ -69,5 +70,15 @@
   "map.noLocations": "لا توجد مواقع في قاعدة البيانات",
   "location.backToMap": "العودة إلى الخريطة",
   "location.noImages": "لا تتوفر صور",
-  "location.notFound": "الموقع غير موجود"
+  "location.notFound": "الموقع غير موجود",
+  "news.badge": "تحديثات المشروع",
+  "news.updatedAt": "آخر تحديث",
+  "news.fallback.title": "الحالة الحالية للمشروع",
+  "news.fallback.lead": "هذه الصفحة جاهزة لنشر التحديثات الحالية حول المشروع. يمكن تعديل كل المحتوى من خلال CMS (Keystatic).",
+  "news.fallback.coverPlaceholder": "أضف صورة رئيسية في Keystatic وستظهر هنا.",
+  "news.fallback.sectionTitle": "قسم",
+  "news.fallback.emptySection": "لا يوجد محتوى في هذا القسم بعد. أضفه من Keystatic.",
+  "news.fallback.sections.done.title": "ما الذي أُنجز",
+  "news.fallback.sections.next.title": "ما التالي",
+  "news.fallback.sections.help.title": "كيف تساعد"
 }

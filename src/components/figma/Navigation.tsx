@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, FileText, ExternalLink } from 'lucide-react';
+import { ExternalLink, FileText, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
@@ -25,12 +25,19 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
   const menuItems = [
     { label: t('nav.about'), value: 'hero' },
     { label: t('nav.projects'), value: 'projects' },
+    { label: t('nav.news'), value: '/aktualnosci' },
     { label: t('nav.aboutProject'), value: 'about-project-page' },
     { label: t('nav.founders'), value: 'founders-page' },
     { label: t('nav.contact'), value: 'contact' },
   ];
 
   const handleNavClick = (value: string) => {
+    if (value.startsWith('/')) {
+      window.location.href = value;
+      setIsOpen(false);
+      return;
+    }
+
     onNavigate(value);
     setIsOpen(false);
   };

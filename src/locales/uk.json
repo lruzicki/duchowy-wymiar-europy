@@ -7,6 +7,7 @@
   "nav.founders": "Засновники та співробітники",
   "nav.contact": "Контакт",
   "nav.documents": "Документи",
+  "nav.news": "Оновлення",
   "hero.title": "Фонд Духовний вимір Європи",
   "hero.tagline": "Совість. Солідарність. Відповідальність.",
   "hero.body1": "Фонд Духовний вимір Європи діє з 2008 року, поєднуючи мислення, чутливість та реальні дії. Ми віримо, що Європа є спільнотою совісті — заснованою на гідності людської особистості та відповідальності за інших.",
@@ -69,5 +70,15 @@
   "map.noLocations": "Немає локацій у базі",
   "location.backToMap": "Повернутися до карти",
   "location.noImages": "Зображень немає",
-  "location.notFound": "Локацію не знайдено"
+  "location.notFound": "Локацію не знайдено",
+  "news.badge": "Оновлення проекту",
+  "news.updatedAt": "Оновлено",
+  "news.fallback.title": "Поточний стан проекту",
+  "news.fallback.lead": "Ця сторінка готова для публікації поточних новин про проект. Увесь контент можна редагувати в CMS (Keystatic).",
+  "news.fallback.coverPlaceholder": "Додайте головне зображення в Keystatic, і воно з'явиться тут.",
+  "news.fallback.sectionTitle": "Розділ",
+  "news.fallback.emptySection": "Цей розділ поки що порожній. Заповніть його в Keystatic.",
+  "news.fallback.sections.done.title": "Що вже зроблено",
+  "news.fallback.sections.next.title": "Що далі",
+  "news.fallback.sections.help.title": "Як допомогти"
 }

@@ -36,6 +36,11 @@ export function Footer({ onNavigate }: FooterProps) {
                 </button>
               </li>
               <li>
+                <button onClick={() => (window.location.href = '/aktualnosci')} className="transition-colors hover:text-white">
+                  {t('nav.news')}
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('about-project-page')} className="transition-colors hover:text-white">
                   {t('nav.aboutProject')}
                 </button>

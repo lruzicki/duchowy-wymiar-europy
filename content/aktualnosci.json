@@ -1,0 +1,79 @@
+{
+  "updatedAt": "2026-03-05",
+  "title": {
+    "pl": "Aktualny status projektu",
+    "en": "Current project status",
+    "de": "Aktueller Projektstatus",
+    "uk": "Поточний стан проекту",
+    "ru": "Текущий статус проекта",
+    "ar": "الحالة الحالية للمشروع"
+  },
+  "lead": {
+    "pl": "Publikujemy tutaj bieżące informacje o postępach projektu.",
+    "en": "We publish current updates about project progress here.",
+    "de": "Hier veröffentlichen wir laufende Informationen über den Projektfortschritt.",
+    "uk": "Тут ми публікуємо актуальні новини про хід проекту.",
+    "ru": "Здесь мы публикуем актуальные обновления о ходе проекта.",
+    "ar": "ننشر هنا التحديثات الحالية حول تقدم المشروع."
+  },
+  "coverImage": "",
+  "sections": [
+    {
+      "key": "co-juz-zrobilismy",
+      "title": {
+        "pl": "Co już zrobiliśmy",
+        "en": "What we have done",
+        "de": "Was wir bereits gemacht haben",
+        "uk": "Що вже зроблено",
+        "ru": "Что уже сделано",
+        "ar": "ما الذي أُنجز"
+      },
+      "content": {
+        "pl": [],
+        "en": [],
+        "de": [],
+        "uk": [],
+        "ru": [],
+        "ar": []
+      }
+    },
+    {
+      "key": "co-dalej",
+      "title": {
+        "pl": "Co dalej",
+        "en": "What is next",
+        "de": "Was als Nächstes kommt",
+        "uk": "Що далі",
+        "ru": "Что дальше",
+        "ar": "ما التالي"
+      },
+      "content": {
+        "pl": [],
+        "en": [],
+        "de": [],
+        "uk": [],
+        "ru": [],
+        "ar": []
+      }
+    },
+    {
+      "key": "jak-pomoc",
+      "title": {
+        "pl": "Jak pomóc",
+        "en": "How to help",
+        "de": "Wie man helfen kann",
+        "uk": "Як допомогти",
+        "ru": "Как помочь",
+        "ar": "كيف تساعد"
+      },
+      "content": {
+        "pl": [],
+        "en": [],
+        "de": [],
+        "uk": [],
+        "ru": [],
+        "ar": []
+      }
+    }
+  ]
+}

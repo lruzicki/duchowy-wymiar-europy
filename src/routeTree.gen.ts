@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as AktualnosciRouteImport } from './routes/aktualnosci'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KeystaticIndexRouteImport } from './routes/keystatic/index'
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
@@ -21,6 +22,11 @@ import { Route as ApiKeystaticSplatRouteImport } from './routes/api/keystatic/$'
 const TimelineRoute = TimelineRouteImport.update({
   id: '/timeline',
   path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AktualnosciRoute = AktualnosciRouteImport.update({
+  id: '/aktualnosci',
+  path: '/aktualnosci',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -61,6 +67,7 @@ const ApiKeystaticSplatRoute = ApiKeystaticSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aktualnosci': typeof AktualnosciRoute
   '/timeline': typeof TimelineRoute
   '/demo/table': typeof DemoTableRoute
   '/keystatic/$': typeof KeystaticSplatRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aktualnosci': typeof AktualnosciRoute
   '/timeline': typeof TimelineRoute
   '/demo/table': typeof DemoTableRoute
   '/keystatic/$': typeof KeystaticSplatRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aktualnosci': typeof AktualnosciRoute
   '/timeline': typeof TimelineRoute
   '/demo/table': typeof DemoTableRoute
   '/keystatic/$': typeof KeystaticSplatRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aktualnosci'
     | '/timeline'
     | '/demo/table'
     | '/keystatic/$'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aktualnosci'
     | '/timeline'
     | '/demo/table'
     | '/keystatic/$'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/aktualnosci'
     | '/timeline'
     | '/demo/table'
     | '/keystatic/$'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AktualnosciRoute: typeof AktualnosciRoute
   TimelineRoute: typeof TimelineRoute
   DemoTableRoute: typeof DemoTableRoute
   KeystaticSplatRoute: typeof KeystaticSplatRoute
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/timeline'
       fullPath: '/timeline'
       preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aktualnosci': {
+      id: '/aktualnosci'
+      path: '/aktualnosci'
+      fullPath: '/aktualnosci'
+      preLoaderRoute: typeof AktualnosciRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AktualnosciRoute: AktualnosciRoute,
   TimelineRoute: TimelineRoute,
   DemoTableRoute: DemoTableRoute,
   KeystaticSplatRoute: KeystaticSplatRoute,
