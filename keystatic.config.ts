@@ -10,25 +10,50 @@ const localeTextFields = (label: string, multiline = false) =>
       ru: fields.text({ label: 'Русский', multiline }),
       ar: fields.text({ label: 'العربية', multiline }),
     },
-    { label }
+    { label },
   )
 
 const localeRichTextFields = (label: string) =>
   fields.object(
     {
-      pl: fields.document({ label: 'Polski', formatting: true, links: true, dividers: true }),
-      en: fields.document({ label: 'English', formatting: true, links: true, dividers: true }),
-      de: fields.document({ label: 'Deutsch', formatting: true, links: true, dividers: true }),
+      pl: fields.document({
+        label: 'Polski',
+        formatting: true,
+        links: true,
+        dividers: true,
+      }),
+      en: fields.document({
+        label: 'English',
+        formatting: true,
+        links: true,
+        dividers: true,
+      }),
+      de: fields.document({
+        label: 'Deutsch',
+        formatting: true,
+        links: true,
+        dividers: true,
+      }),
       uk: fields.document({
         label: 'Українська',
         formatting: true,
         links: true,
         dividers: true,
       }),
-      ru: fields.document({ label: 'Русский', formatting: true, links: true, dividers: true }),
-      ar: fields.document({ label: 'العربية', formatting: true, links: true, dividers: true }),
+      ru: fields.document({
+        label: 'Русский',
+        formatting: true,
+        links: true,
+        dividers: true,
+      }),
+      ar: fields.document({
+        label: 'العربية',
+        formatting: true,
+        links: true,
+        dividers: true,
+      }),
     },
-    { label }
+    { label },
   )
 
 export default config({
@@ -46,7 +71,8 @@ export default config({
       slugField: 'name',
       format: { contentField: 'content' },
       schema: {
-        name: fields.slug({ name: { label: 'Location Name' } }),
+        name: fields.slug({ name: { label: 'Slug projektu (np. lugowoje)' } }),
+        title: localeTextFields('Nazwa projektu'),
         coordinates: fields.object(
           {
             lat: fields.number({
@@ -60,20 +86,20 @@ export default config({
               validation: { min: -180, max: 180, isRequired: true },
             }),
           },
-          { label: 'Coordinates' }
+          { label: 'Coordinates' },
         ),
-        summary: fields.text({ label: 'Summary', multiline: true }),
+        summary: localeTextFields('Krótki opis', true),
         content: fields.markdoc({ label: 'Content' }),
-        city: fields.text({ label: 'City' }),
-        country: fields.text({ label: 'Country' }),
-        date: fields.text({ label: 'Date / Period' }),
+        city: localeTextFields('Miasto'),
+        country: localeTextFields('Kraj / region'),
+        date: fields.text({ label: 'Data / okres' }),
         images: fields.array(
           fields.image({
             label: 'Image',
             directory: 'public/images/locations',
             publicPath: '/images/locations/',
           }),
-          { label: 'Images' }
+          { label: 'Images' },
         ),
       },
     }),
@@ -99,9 +125,9 @@ export default config({
               title: localeTextFields('Tytuł sekcji'),
               content: localeRichTextFields('Treść sekcji'),
             },
-            { label: 'Sekcja' }
+            { label: 'Sekcja' },
           ),
-          { label: 'Sekcje' }
+          { label: 'Sekcje' },
         ),
       },
     }),

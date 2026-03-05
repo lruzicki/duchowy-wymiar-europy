@@ -1,89 +1,118 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { MapPin, Calendar } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import type { LocationListItem } from '@/lib/locations';
+import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { MapPin, Calendar } from 'lucide-react'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import {
+  selectLocationLocalizedText,
+  type LocationListItem,
+} from '@/lib/locations'
+import type { SupportedLocale } from '@/lib/detect-locale'
 
 // Leaflet imports - will be loaded dynamically
-type LatLngExpression = [number, number];
+type LatLngExpression = [number, number]
 
 interface ProjectsMapProps {
   locations?: LocationListItem[]
 }
 
 export function ProjectsMap({ locations = [] }: ProjectsMapProps) {
-  const { t } = useTranslation();
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
-  const markersRef = useRef<any[]>([]);
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const [mapLoaded, setMapLoaded] = useState(false);
+  const { t, i18n } = useTranslation()
+  const mapRef = useRef<HTMLDivElement>(null)
+  const mapInstanceRef = useRef<any>(null)
+  const markersRef = useRef<any[]>([])
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
+  const [mapLoaded, setMapLoaded] = useState(false)
+  const baseLocale = (i18n.resolvedLanguage ?? i18n.language)
+    .toLowerCase()
+    .split('-')[0] as SupportedLocale
+  const locale: SupportedLocale = ['pl', 'en', 'de', 'uk', 'ru', 'ar'].includes(
+    baseLocale,
+  )
+    ? baseLocale
+    : 'pl'
 
   useEffect(() => {
     // Dynamically load Leaflet
     const loadLeaflet = async () => {
-      if (!mapRef.current || mapInstanceRef.current) return;
+      if (!mapRef.current || mapInstanceRef.current) return
 
       // Load Leaflet CSS
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-      document.head.appendChild(link);
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
+      document.head.appendChild(link)
 
       // Load Leaflet JS
-      const L = await import('https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js' as any);
+      const L = await import(
+        'https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js' as any
+      )
 
       // Fix for default marker icon
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      delete (L.Icon.Default.prototype as any)._getIconUrl
       L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+        iconRetinaUrl:
+          'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
         iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-      });
+        shadowUrl:
+          'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+      })
 
       // Initialize map centered on Poland
-      const map = L.map(mapRef.current).setView([52.2297, 17.0122], 6);
+      const map = L.map(mapRef.current).setView([52.2297, 17.0122], 6)
 
       // Add tile layer
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19,
-      }).addTo(map);
+      }).addTo(map)
 
-      mapInstanceRef.current = map;
+      mapInstanceRef.current = map
 
       // Add markers for each location from CMS
-      const markers: any[] = [];
+      const markers: any[] = []
 
       locations.forEach((location) => {
-        const marker = L.marker([location.coordinates.lat, location.coordinates.lng] as LatLngExpression).addTo(map);
+        const name = selectLocationLocalizedText(location.name, locale)
+        const city = selectLocationLocalizedText(location.city, locale)
+        const country = selectLocationLocalizedText(location.country, locale)
+        const marker = L.marker([
+          location.coordinates.lat,
+          location.coordinates.lng,
+        ] as LatLngExpression).addTo(map)
 
         const popupContent = `
           <div style="min-width: 180px; padding: 4px;">
-            <h3 style="margin: 0 0 4px 0; font-size: 15px; font-weight: 600;">${location.name}</h3>
-            ${location.city || location.country ? `<p style="margin: 0 0 8px 0; font-size: 13px; color: #666;">${[location.city, location.country].filter(Boolean).join(', ')}</p>` : ''}
+            <h3 style="margin: 0 0 4px 0; font-size: 15px; font-weight: 600;">${name}</h3>
+            ${city || country ? `<p style="margin: 0 0 8px 0; font-size: 13px; color: #666;">${[city, country].filter(Boolean).join(', ')}</p>` : ''}
             <a href="/locations/${location.slug}" style="display:inline-block;margin-top:4px;color:#0066cc;font-weight:600;font-size:13px;text-decoration:none;">&#8594; ${t('map.seeMore')}</a>
           </div>
-        `;
+        `
 
-        marker.bindPopup(popupContent);
-        markers.push(marker);
-      });
+        marker.bindPopup(popupContent)
+        markers.push(marker)
+      })
 
-      markersRef.current = markers;
-      setMapLoaded(true);
-    };
+      markersRef.current = markers
+      setMapLoaded(true)
+    }
 
-    loadLeaflet();
+    loadLeaflet()
 
     return () => {
       if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
-        mapInstanceRef.current = null;
+        mapInstanceRef.current.remove()
+        mapInstanceRef.current = null
       }
-    };
-  }, [locations, t]);
+    }
+  }, [locale, locations, t])
 
   return (
     <section className="py-20 pt-32 bg-white" id="projekty">
@@ -107,38 +136,58 @@ export function ProjectsMap({ locations = [] }: ProjectsMapProps) {
                       {t('map.noLocations')}
                     </div>
                   ) : (
-                    locations.map((location) => (
-                      <Card
-                        key={location.slug}
-                        className={`cursor-pointer transition-all hover:shadow-lg hover:scale-[1.02] hover:border-primary/50 ${
-                          selectedSlug === location.slug ? 'ring-2 ring-primary shadow-lg' : ''
-                        }`}
-                        onClick={() => {
-                          setSelectedSlug(location.slug);
-                          window.location.href = `/locations/${location.slug}`;
-                        }}
-                      >
-                        <CardHeader className="p-4 pb-3">
-                          <CardTitle className="text-base flex items-start gap-2 leading-tight">
-                            <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
-                            <span className="line-clamp-2">{location.name}</span>
-                          </CardTitle>
-                          {(location.city || location.country) && (
-                            <CardDescription className="text-sm mt-1">
-                              {[location.city, location.country].filter(Boolean).join(', ')}
-                            </CardDescription>
+                    locations.map((location) => {
+                      const name = selectLocationLocalizedText(
+                        location.name,
+                        locale,
+                      )
+                      const city = selectLocationLocalizedText(
+                        location.city,
+                        locale,
+                      )
+                      const country = selectLocationLocalizedText(
+                        location.country,
+                        locale,
+                      )
+                      const date = selectLocationLocalizedText(
+                        location.date,
+                        locale,
+                      )
+                      return (
+                        <Card
+                          key={location.slug}
+                          className={`cursor-pointer transition-all hover:shadow-lg hover:scale-[1.02] hover:border-primary/50 ${
+                            selectedSlug === location.slug
+                              ? 'ring-2 ring-primary shadow-lg'
+                              : ''
+                          }`}
+                          onClick={() => {
+                            setSelectedSlug(location.slug)
+                            window.location.href = `/locations/${location.slug}`
+                          }}
+                        >
+                          <CardHeader className="p-4 pb-3">
+                            <CardTitle className="text-base flex items-start gap-2 leading-tight">
+                              <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
+                              <span className="line-clamp-2">{name}</span>
+                            </CardTitle>
+                            {(city || country) && (
+                              <CardDescription className="text-sm mt-1">
+                                {[city, country].filter(Boolean).join(', ')}
+                              </CardDescription>
+                            )}
+                          </CardHeader>
+                          {date && (
+                            <CardContent className="p-4 pt-0">
+                              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                                <Calendar className="w-3 h-3" />
+                                {date}
+                              </div>
+                            </CardContent>
                           )}
-                        </CardHeader>
-                        {location.date && (
-                          <CardContent className="p-4 pt-0">
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                              <Calendar className="w-3 h-3" />
-                              {location.date}
-                            </div>
-                          </CardContent>
-                        )}
-                      </Card>
-                    ))
+                        </Card>
+                      )
+                    })
                   )}
                 </div>
               </ScrollArea>
@@ -158,7 +207,9 @@ export function ProjectsMap({ locations = [] }: ProjectsMapProps) {
                     <div className="w-full h-full flex items-center justify-center">
                       <div className="text-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-                        <p className="text-muted-foreground">{t('map.loading')}</p>
+                        <p className="text-muted-foreground">
+                          {t('map.loading')}
+                        </p>
                       </div>
                     </div>
                   )}
@@ -169,5 +220,5 @@ export function ProjectsMap({ locations = [] }: ProjectsMapProps) {
         </div>
       </div>
     </section>
-  );
+  )
 }
