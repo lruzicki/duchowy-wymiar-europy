@@ -88,7 +88,10 @@ function ProjectUpdatesPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Navigation onNavigate={navigateToMainSection} currentPage="aktualnosci" />
+      <Navigation
+        onNavigate={navigateToMainSection}
+        currentPage="aktualnosci"
+      />
       <main className="pt-24 flex-1">
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-18">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -137,15 +140,23 @@ function ProjectUpdatesPage() {
                 key={section.key}
                 className="rounded-2xl border border-slate-200/70 bg-white p-6 shadow-sm sm:p-8"
               >
-                <h2 className="text-2xl font-semibold text-slate-900">{section.title || t('news.fallback.sectionTitle')}</h2>
+                <h2 className="text-2xl font-semibold text-slate-900">
+                  {section.title || t('news.fallback.sectionTitle')}
+                </h2>
                 {section.content.length ? (
                   <div className="prose prose-slate mt-4 max-w-none prose-a:text-blue-700 hover:prose-a:text-blue-800">
                     <DocumentRenderer
-                      document={section.content as Parameters<typeof DocumentRenderer>[0]['document']}
+                      document={
+                        section.content as Parameters<
+                          typeof DocumentRenderer
+                        >[0]['document']
+                      }
                     />
                   </div>
                 ) : (
-                  <p className="mt-4 text-slate-600">{t('news.fallback.emptySection')}</p>
+                  <p className="mt-4 text-slate-600">
+                    {t('news.fallback.emptySection')}
+                  </p>
                 )}
               </article>
             ))}

@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
-import { Heart, ArrowRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
-import { Contact } from './Contact';
-import { Footer } from './Footer';
-import { FoundersPage } from './FoundersPage';
-import { Hero } from './Hero';
-import { Navigation } from './Navigation';
-import { ProjectsMap } from './ProjectsMap';
-import type { LocationListItem } from '@/lib/locations';
+import { useEffect, useState } from 'react'
+import { Heart, ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { Button } from '@/components/ui/button'
+import { Contact } from './Contact'
+import { Footer } from './Footer'
+import { FoundersPage } from './FoundersPage'
+import { Hero } from './Hero'
+import { Navigation } from './Navigation'
+import { ProjectsMap } from './ProjectsMap'
+import type { LocationListItem } from '@/lib/locations'
 
 interface FigmaAppProps {
-  locations?: LocationListItem[];
+  locations?: LocationListItem[]
 }
 
 function CTASection({ onNavigate }: { onNavigate: (section: string) => void }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <section className="relative overflow-hidden bg-primary py-20 md:py-28">
       <div className="relative mx-auto max-w-3xl px-6 text-center">
@@ -29,124 +29,146 @@ function CTASection({ onNavigate }: { onNavigate: (section: string) => void }) {
           {t('cta.body')}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Button size="lg" variant="secondary" className="gap-2" onClick={() => onNavigate('projects')}>
+          <Button
+            size="lg"
+            variant="secondary"
+            className="gap-2"
+            onClick={() => onNavigate('projects')}
+          >
             {t('cta.btnProjects')}
             <ArrowRight className="size-4" />
           </Button>
-          <a href="mailto:kontakt@dwe.org.pl">
-            <Button size="lg" variant="outline" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-              {t('cta.btnContact')}
-            </Button>
-          </a>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            onClick={() => onNavigate('contact')}
+          >
+            {t('cta.btnContact')}
+          </Button>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 export function FigmaApp({ locations = [] }: FigmaAppProps) {
-  const [currentPage, setCurrentPage] = useState('hero');
+  const [currentPage, setCurrentPage] = useState('hero')
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const page = params.get('page');
-    const hash = window.location.hash.replace('#', '');
+    const params = new URLSearchParams(window.location.search)
+    const page = params.get('page')
+    const hash = window.location.hash.replace('#', '')
 
     if (page === 'founders-page') {
-      setCurrentPage(page);
-      return;
+      setCurrentPage(page)
+      return
     }
 
-    if (hash === 'hero' || hash === 'projects' || hash === 'contact') {
-      requestAnimationFrame(() => {
-        const element = document.getElementById(hash);
+    const target =
+      hash === 'hero' || hash === 'projects' || hash === 'contact' ? hash : null
+
+    if (target) {
+      let attempts = 0
+
+      const scrollToHashTarget = () => {
+        const element = document.getElementById(target)
         if (!element) {
-          return;
+          if (attempts < 8) {
+            attempts += 1
+            setTimeout(scrollToHashTarget, 80)
+          }
+          return
         }
 
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        const offset = 80
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - offset
 
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth',
-        });
-      });
+        })
+      }
+
+      setTimeout(scrollToHashTarget, 50)
     }
-  }, []);
+  }, [])
 
   const scrollToSection = (sectionId: string) => {
-    setCurrentPage(sectionId);
+    setCurrentPage(sectionId)
 
     if (sectionId === 'founders-page') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
     }
 
-    const element = document.getElementById(sectionId);
+    const element = document.getElementById(sectionId)
     if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offset = 80
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
 
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth',
-      });
+      })
     }
-  };
+  }
 
   useEffect(() => {
     const handleScroll = () => {
       if (currentPage === 'founders-page') {
-        return;
+        return
       }
 
-      const sections = ['hero', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['hero', 'projects', 'contact']
+      const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
-        const element = document.getElementById(section);
+        const element = document.getElementById(section)
         if (element) {
-          const { offsetHeight, offsetTop } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setCurrentPage(section);
-            break;
+          const { offsetHeight, offsetTop } = element
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setCurrentPage(section)
+            break
           }
         }
       }
-    };
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [currentPage]);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [currentPage])
 
   const renderContent = () => {
     if (currentPage === 'founders-page') {
-      return <FoundersPage />;
+      return <FoundersPage />
     }
     return (
       <>
-        <section id='hero'>
+        <section id="hero">
           <Hero onNavigate={scrollToSection} />
         </section>
-        <section id='projects'>
+        <section id="projects">
           <ProjectsMap locations={locations} />
         </section>
         <CTASection onNavigate={scrollToSection} />
-        <section id='contact'>
+        <section id="contact">
           <Contact />
         </section>
       </>
-    );
-  };
+    )
+  }
 
   return (
-    <div className='min-h-screen bg-white'>
+    <div className="min-h-screen bg-white">
       <Navigation onNavigate={scrollToSection} currentPage={currentPage} />
       {renderContent()}
       <Footer onNavigate={scrollToSection} />
     </div>
-  );
+  )
 }
