@@ -26,7 +26,6 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
     { label: t('nav.about'), value: 'hero' },
     { label: t('nav.projects'), value: 'projects' },
     { label: t('nav.news'), value: '/aktualnosci' },
-    { label: t('nav.aboutProject'), value: 'about-project-page' },
     { label: t('nav.founders'), value: 'founders-page' },
     { label: t('nav.contact'), value: 'contact' },
   ];

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Heart, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { AboutProjectPage } from './AboutProjectPage';
 import { Contact } from './Contact';
 import { Footer } from './Footer';
 import { FoundersPage } from './FoundersPage';
@@ -53,7 +52,7 @@ export function FigmaApp({ locations = [] }: FigmaAppProps) {
     const page = params.get('page');
     const hash = window.location.hash.replace('#', '');
 
-    if (page === 'founders-page' || page === 'about-project-page') {
+    if (page === 'founders-page') {
       setCurrentPage(page);
       return;
     }
@@ -80,7 +79,7 @@ export function FigmaApp({ locations = [] }: FigmaAppProps) {
   const scrollToSection = (sectionId: string) => {
     setCurrentPage(sectionId);
 
-    if (sectionId === 'founders-page' || sectionId === 'about-project-page') {
+    if (sectionId === 'founders-page') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -100,7 +99,7 @@ export function FigmaApp({ locations = [] }: FigmaAppProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (currentPage === 'founders-page' || currentPage === 'about-project-page') {
+      if (currentPage === 'founders-page') {
         return;
       }
 
@@ -127,10 +126,6 @@ export function FigmaApp({ locations = [] }: FigmaAppProps) {
     if (currentPage === 'founders-page') {
       return <FoundersPage />;
     }
-    if (currentPage === 'about-project-page') {
-      return <AboutProjectPage />;
-    }
-
     return (
       <>
         <section id='hero'>

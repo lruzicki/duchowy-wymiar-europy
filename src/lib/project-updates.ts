@@ -93,15 +93,22 @@ export const getProjectUpdate = createServerFn({ method: 'GET' }).handler(async 
   ])
 
   const reader = createReader(process.cwd(), keystaticConfig)
-  const entry = (await reader.singletons.aktualnosci.read({ resolveLinkedFiles: true })) as
-    | null
-    | {
-        updatedAt?: unknown
-        title?: unknown
-        lead?: unknown
-        coverImage?: unknown
-        sections?: Array<unknown>
-      }
+  let entry: null | {
+    updatedAt?: unknown
+    title?: unknown
+    lead?: unknown
+    coverImage?: unknown
+    sections?: Array<unknown>
+  } = null
+
+  try {
+    entry = (await reader.singletons.aktualnosci.read({
+      resolveLinkedFiles: true,
+    })) as typeof entry
+  } catch (error) {
+    console.error('Failed to read singleton "aktualnosci"', error)
+    return null
+  }
 
   if (!entry) {
     return null

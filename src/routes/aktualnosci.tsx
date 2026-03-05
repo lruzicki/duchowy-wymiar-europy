@@ -87,9 +87,9 @@ function ProjectUpdatesPage() {
   }, [locale, t, update])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navigation onNavigate={navigateToMainSection} currentPage="aktualnosci" />
-      <main className="pt-24">
+      <main className="pt-24 flex-1">
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-18">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">

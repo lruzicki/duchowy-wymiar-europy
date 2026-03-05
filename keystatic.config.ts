@@ -95,11 +95,7 @@ export default config({
         sections: fields.array(
           fields.object(
             {
-              key: fields.slug({
-                name: {
-                  label: 'Id sekcji (np. co-juz-zrobilismy)',
-                },
-              }),
+              key: fields.text({ label: 'Id sekcji (np. co-juz-zrobilismy)' }),
               title: localeTextFields('Tytuł sekcji'),
               content: localeRichTextFields('Treść sekcji'),
             },
