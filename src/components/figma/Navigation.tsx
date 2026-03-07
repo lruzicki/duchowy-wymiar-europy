@@ -42,7 +42,10 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
   };
 
   const handleDocumentsClick = () => {
-    window.open('https://onedrive.live.com/?id=YOUR_LINK', '_blank');
+    window.open(
+      'https://drive.google.com/drive/folders/1Fj84Rl18MaEGqOid5orXVRkogQ0DbDTf?usp=drive_link',
+      '_blank'
+    );
   };
 
   return (
